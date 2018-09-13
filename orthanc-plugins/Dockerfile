@@ -1,9 +1,12 @@
-FROM jodogne/orthanc
+FROM bluelens/orthanc:dev
 
-MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
-LABEL Description="Orthanc, free DICOM server, with plugins" Vendor="The Orthanc project"
+MAINTAINER bluehackmaster <master@bluehack.net>
+LABEL Description="Orthanc, free DICOM server, with plugins for Mediviewer" Vendor="BlueHack Inc."
 
+RUN apt-get update
+RUN apt-get -y install libc6 libc6-dev
 ADD ./download-plugins.sh ./download-plugins.sh
+ADD ./libDwvOrthancPlugin.so ./libDwvOrthancPlugin.so
 RUN bash ./download-plugins.sh
 
 RUN rm ./download-plugins.sh

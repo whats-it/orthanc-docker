@@ -61,4 +61,5 @@ mv ./libOrthancPostgreSQLStorage.so /usr/local/share/orthanc/plugins/
 mv ./libOrthancMySQLIndex.so        /usr/local/share/orthanc/plugins/
 mv ./libOrthancMySQLStorage.so      /usr/local/share/orthanc/plugins/
 mv ./libOrthancWSI.so               /usr/local/share/orthanc/plugins/
-mv ./libOrthancWebViewer.so         /usr/local/share/orthanc/plugins/
+#mv ./libOrthancWebViewer.so         /usr/local/share/orthanc/plugins/
+mv ./libDwvOrthancPlugin.so         /usr/local/share/orthanc/plugins/

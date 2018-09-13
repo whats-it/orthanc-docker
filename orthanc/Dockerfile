@@ -1,4 +1,5 @@
-FROM debian:wheezy-slim
+#FROM debian:jessie
+FROM ubuntu:16.04
 
 MAINTAINER Sebastien Jodogne <s.jodogne@gmail.com>
 LABEL Description="Orthanc, free DICOM server" Vendor="The Orthanc project"

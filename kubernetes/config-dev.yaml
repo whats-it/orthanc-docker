@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: orthanc-plugin
+  namespace: dev
+  labels:
+    name: orthanc-plugin
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 4242
+      targetPort: 4242
+      protocol: TCP
+      name: xxx1
+    - port: 8042
+      targetPort: 8042
+      protocol: TCP
+      name: xxx2
+  selector:
+    name: orthanc-plugin
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: orthanc-plugin
+  namespace: dev
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        role: api
+        name: orthanc-plugin
+    spec:
+      containers:
+      - image: bluelens/orthanc-plugin:dev
+        imagePullPolicy: Always
+        name: orthanc-plugin
+        ports:
+        - containerPort: 4242
+          name: xxx1
+        - containerPort: 8042
+          name: xxx2
